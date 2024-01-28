@@ -107,6 +107,7 @@ const GetById: RequestHandler = async (req: Request, res: Response) => {
 }
 
 /**
+ * @description Update Category to Database
  * @param {Object} req.body - The request body
  * @param {string} req.body.id - The ID parameter
  * @param {string} req.body.newCategoryName - The new category name parameter
@@ -136,6 +137,7 @@ const UpdateCategory:RequestHandler = async (req:Request, res:Response) => {
 }
 
 /**
+ * @description  Delete Category from the database by its ID
  * @param {Object} req.body - The request body
  * @param {string} req.params.id - The ID parameter
 */
