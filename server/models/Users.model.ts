@@ -1,10 +1,11 @@
 import mongoose,{Schema} from "mongoose";
 
-interface User{
+export interface User{
     name:string,
     email:string,
     role:string,
     password:string,
+    token?:string,
     isEmailVerified?:boolean,
     forgotPasswordToken?:string,
     forgotPasswordExpiry?:Date,
@@ -28,6 +29,9 @@ const userSchema = new Schema<User>(
         unique: true,
         lowercase: true,
         trim: true,
+      },
+      token:{
+        type:String,
       },
       role: {
         type: String,
