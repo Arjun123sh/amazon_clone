@@ -4,10 +4,10 @@ import mongoose from "mongoose";
 import { Request,Response } from "express";
 import { AddressInterface, IUserRequest } from "../types";
 
-const createAddress=async(req:AddressInterface,res:Response)=>{
+const createAddress=async(req:IUserRequest,res:Response)=>{
     try{
         const id=req.user.id;
-        const {addressLine1,addressLine2,city,country,pincode,state}=req.body;
+        const {addressLine1,addressLine2,city,country,pincode,state}:AddressInterface=req.body;
         //check if user exists or not
         const UserExists=await Users.aggregate([
             {
@@ -48,7 +48,7 @@ const createAddress=async(req:AddressInterface,res:Response)=>{
 const UpdateAddress=async(req:Request,res:Response)=>{
     try{
         const id:string=req.params.id ;
-        const {addressLine1,addressLine2,city,country,pincode,state}=req.body;
+        const {addressLine1,addressLine2,city,country,pincode,state}:AddressInterface=req.body;
         const response=await Address.findByIdAndUpdate(
             {_id:new mongoose.Types.ObjectId(id)},
             {

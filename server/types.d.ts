@@ -17,13 +17,21 @@ export interface CartInterface extends IUserRequest {
     };
 }
 
-export interface AddressInterface extends IUserRequest{
-    addressLine1:string;
-    addressLine2:string;
-    city:string;
-    country:string;
-    pincode:string;
-    state:string;
+export interface ProductInterface {
+    name: string;
+    category: string;
+    description: string,
+    price: number;
+    stock: number
+}
+
+export interface AddressInterface {
+    addressLine1?: string;
+    addressLine2?: string;
+    city?: string;
+    country?: string;
+    pincode?: string;
+    state?: string;
 }
 
 

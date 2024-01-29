@@ -2,6 +2,7 @@ import { Product } from "../models/Product.model";
 import { Category } from "../models/Category.model";
 import mongoose from "mongoose";
 import { Request, RequestHandler, Response } from "express";
+import { ProductInterface } from "../types";
 
 /**
  * @description Add a new product to the database
@@ -14,7 +15,7 @@ import { Request, RequestHandler, Response } from "express";
  */
 const AddProduct: RequestHandler = async (req: Request, res: Response) => {
     try {
-        const { name, category, description, price, stock } = req.body;
+        const { name, category, description, price, stock }:ProductInterface = req.body;
         const response = await Product.create({
             name,
             category: category,
